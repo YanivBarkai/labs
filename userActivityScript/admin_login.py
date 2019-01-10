@@ -3,9 +3,9 @@ import time
 server = 'http://localhost/CyberPro-FinalExam/login.php'
 def main():
     global driver
-    # Linux - driver = webdriver.Firefox(executable_path='/home/tech/gecko/geckodriver')
+    driver = webdriver.Firefox(executable_path='/var/www/html/geckodriver')
 
-    driver = webdriver.Firefox()
+#     driver = webdriver.Firefox()
     driver.set_page_load_timeout(5)
     driver.get(server)
     for i in range(2):
