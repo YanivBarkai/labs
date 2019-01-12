@@ -9,7 +9,7 @@ $AutoLoginUser = "Administrator"
 $AutoLoginPassword = "Summer01!"
 
 ## Configures script to run once on next logon
-Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name 'AD-Step2' -Value "c:\windows\system32\cmd.exe /c C:\scripts\02-ad_add_domain_users.bat"
+# Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name 'AD-Step2' -Value "c:\windows\system32\cmd.exe /c C:\scripts\restart.bat"
 
 # Registry path for Autologon configuration
 $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"

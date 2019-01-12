@@ -107,7 +107,7 @@ resource "aws_instance" "main" {
     }
     inline = [
       "powershell.exe Set-ExecutionPolicy RemoteSigned -force",
-      "powershell.exe -version 4 -ExecutionPolicy Bypass -File C:\\scripts\\01-ad_init.ps1"
+      "powershell.exe -version 4 -ExecutionPolicy Bypass -File C:\\scripts\\bootstrap.ps1"
     ]
   }
 }

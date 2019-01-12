@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "admin";
-$password = "P@ssw0rd";
+$password = "p@ssw0rd";
 $db_name = 'challenge';
 
 // Create connection

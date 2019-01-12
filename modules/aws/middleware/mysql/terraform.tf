@@ -22,10 +22,33 @@ resource "aws_instance" "main" {
   
 # Boot takes time
   provisioner "local-exec" {
-    command     = "sleep 140"
+    command     = "sleep 160"
+  }
+
+    provisioner "file" {
+    source      = "./challenge.sql"
+    destination = "/home/ubuntu/challenge.sql"
+
+      connection {
+      type     = "ssh"
+      user     = "ubuntu"
+    }
   }
   provisioner "local-exec" {
-    command     = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${aws_instance.main.public_ip},' -u ubuntu main.yml"
+    command     = <<EOF
+    ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${aws_instance.main.public_ip},' -u ubuntu main.yml
+    EOF
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "mysql -u root -proot < /home/ubuntu/challenge.sql",
+    ]
+
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+    }
   }
 }
 

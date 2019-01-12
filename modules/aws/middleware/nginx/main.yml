@@ -4,3 +4,5 @@
   tasks:
     - include_role:
         name: geerlingguy.nginx
+    - include_role:
+        name: geerlingguy.php
