@@ -15,19 +15,6 @@ if (isset($_POST["comment"]))
     insert_Comment($_SESSION["username"],$_POST["comment"]);
 }
 
-$servername = "localhost";
-$username = "admin";
-$password = "P@ssw0rd";
-$db_name = 'challenge';
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-// Check connection
-if ($conn->connect_error) {
-
-    die("Connection failed: " . $conn->connect_error);
-}
 
 
 $sql_articles = "SELECT id, article_name, article_writer, article_date, content FROM articles WHERE id = 2";
