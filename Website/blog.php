@@ -86,7 +86,7 @@ $stmt_articles->store_result();
                 ?>
                 <nav id="nav">
                     <ul class="main-menu nav navbar-nav navbar-right">
-                        <li><a href="UploadFilesToServer123.php">Upload</a></li>
+                        <li><a href="UploadFileToServer123.php">Upload</a></li>
 
                     </ul>
                 </nav>
