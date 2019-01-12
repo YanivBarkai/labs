@@ -76,8 +76,7 @@ INSERT INTO `comments` (`id`, `username`, `comment`, `article_id`) VALUES
 (57, 'User12', 'Wow!! Amazing Article!!', 1),
 (58, 'User12', 'Wow!! Amazing Article!!', 2),
 (59, 'User12', 'Wow!! Amazing Article!!', 3),
-(60, 'User12', 'Wow!! Amazing Article!!', 4),
-(61, '\"<script>document.location=\"http://192.168.146.129\"</script>', 'asd', 2);
+(60, 'User12', 'Wow!! Amazing Article!!', 4);
 
 -- --------------------------------------------------------
 
