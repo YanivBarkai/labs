@@ -1,11 +1,10 @@
 from selenium import webdriver
 import time
-server = 'http://localhost/CyberPro-FinalExam/login.php'
+server = 'http://localhost/login.php'
 def main():
     global driver
-    driver = webdriver.Firefox(executable_path='/var/www/html/geckodriver')
+    driver = webdriver.Firefox(executable_path='/var/www/html/Website/geckodriver')
 
-#     driver = webdriver.Firefox()
     driver.set_page_load_timeout(5)
     driver.get(server)
     for i in range(2):
@@ -14,23 +13,6 @@ def main():
         except:
             pass
         time.sleep(5)
-
-
-    # for i in xrange(1,5):
-    #     url = link.format(server, i)
-    #     print 'Entering', url
-    #     flag = True
-    #     driver.get(url)
-    #     time.sleep(2)
-    #     while flag == True:
-    #         try:
-    #             alert = driver.switch_to.alert
-    #             alert.accept()
-    #             print 'Alert Found'
-    #             time.sleep(2)
-    #         except:
-    #             flag = False
-
     driver.close()
 
 def login():
