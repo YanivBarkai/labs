@@ -1,15 +1,15 @@
 #Reference: http://technet.microsoft.com/en-us/library/hh472162.aspx
 #DomainMode / ForestMode - Server 2003: 2 or Win2003 / Server 2008: 3 or Win2008 / Server 2008 R2: 4 or Win2008R2 / Server 2012: 5 or Win2012 / Server 2012 R2: 6 or Win2012R2
-$DomainName = "example.com"
-$NetBIOSName = "example"
+$DomainName = "cyber.com"
+$NetBIOSName = "cyber"
 $DomainMode = "Win2012R2"
 $ForestMode = "Win2012R2"
-$SafeModeAdministratorPassword = ConvertTo-SecureString "Summer01!" -AsPlaintext -Force
+$SafeModeAdministratorPassword = ConvertTo-SecureString "Aa123456!@#$" -AsPlaintext -Force
 $AutoLoginUser = "Administrator"
-$AutoLoginPassword = "Summer01!"
+$AutoLoginPassword = "Aa123456!@#$"
 
 ## Configures script to run once on next logon
-# Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name 'AD-Step2' -Value "c:\windows\system32\cmd.exe /c C:\scripts\restart.bat"
+Set-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name 'AD-Step2' -Value "c:\windows\system32\cmd.exe /c C:\scripts\restart.bat"
 
 # Registry path for Autologon configuration
 $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"

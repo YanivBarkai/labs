@@ -1,6 +1,6 @@
 <?php
 
-$servername = "localhost";
+$servername = "10.100.101.59";
 $username = "admin";
 $password = "p@ssw0rd";
 $db_name = 'challenge';

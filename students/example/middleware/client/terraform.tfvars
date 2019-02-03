@@ -3,6 +3,10 @@ terragrunt = {
   include {
     path = "${find_in_parent_folders()}"
   }
+
+  dependencies {
+    paths = ["../activedirectory", "../../vpc"]
+  }
   terraform {
     source = "../../../..//modules/aws/middleware/client"
     extra_arguments "custom_vars" {

@@ -12,14 +12,14 @@ variable "key_name" {
 
 variable "instance_type" {
   description = "instance type for ec2 instance"
-  default     = "t2.large"
+  default     = "t3.medium"
 }
 
 variable "admin_password" {
   description = "Windows Administrator password to login as."
-	default = "Summer01!"
+	default = "Aa123456!@#$"
 }
 
 variable "sp_admin" {
-	default = "Summer01!"
+	default = "Aa123456!@#$"
 }

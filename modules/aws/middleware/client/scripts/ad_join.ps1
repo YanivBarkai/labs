@@ -1,14 +1,14 @@
 ## Variables for Domain Join ##
 $DNS = "10.100.101.50"
 $DNS2 = "8.8.8.8"
-$DomainName = 'example.com'
-$NetbiosName = "example"
+$DomainName = 'cyber.com'
+$NetbiosName = "cyber"
 $AutoLoginUser = "Administrator"
-$AutoLoginPassword = "Summer01!"
+$AutoLoginPassword = "Aa123456!@#$"
 $OU = 'OU=UsersSP2016,DC={0},DC=com' -f $NetbiosName
 $NewComputerName = 'mssql-01'
 $EnterpriseAdmin = 'spAdmin'
-$EnterpriseAdminPW  = (ConvertTo-SecureString 'Summer01!' -AsPlainText -Force)
+$EnterpriseAdminPW  = (ConvertTo-SecueString 'Aa123456!@#$' -AsPlainText -Force)
 #Creating SecureString object
 
 # Registry path for Autologon configuration

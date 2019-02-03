@@ -3,6 +3,9 @@ terragrunt = {
   include {
     path = "${find_in_parent_folders()}"
   }
+  dependencies {
+    paths = ["../../vpc"]
+  }
   terraform {
     source = "../../../..//modules/aws/middleware/mysql"
     extra_arguments "custom_vars" {
