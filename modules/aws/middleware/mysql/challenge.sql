@@ -2124,7 +2124,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
 (1998, 'User1996', 'P@ssw0rd!@#$!!@', 'User1996'),
 (1999, 'User1997', 'P@ssw0rd!@#$!!@', 'User1997'),
 (2000, 'User1998', 'P@ssw0rd!@#$!!@', 'User1998'),
-(2002, 'admin', 'P@ssw0rd!@#!@#', 'Admin'),
+(2002, 'IMAdministrator', 'P@ssw0rd!@#!@#', 'Admin'),
 (2003, 'adm', 'P@ssw0rd!@#!@#', 'Admin'),
 (2004, 'tech', 'Pa$$word', 'John');
 COMMIT;
