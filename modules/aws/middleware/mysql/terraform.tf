@@ -11,7 +11,7 @@ resource "aws_instance" "main" {
   instance_type    = "${var.instance_type}"
   key_name         = "${var.key_name}"
   subnet_id        = "${data.terraform_remote_state.main.aws_subnet_main_id}"
-  # private_ip       = "10.100.101.53"
+  private_ip       = "10.100.101.53"
   vpc_security_group_ids = [
     "${aws_security_group.main.id}"
   ]

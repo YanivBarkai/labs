@@ -1,0 +1,11 @@
+- name: NGINX | Create symbolic link 
+  file:
+    src: "{{ ansistrano_release_path.stdout }}"
+    dest: "/var/www/html/app"
+    state: link
+
+- name: NGINX | Install
+  apt:
+    state: present
+    name: "{{ item }}"
+  with_lines: cat {{ playbook_dir }}/../../../../app/requirements.txt

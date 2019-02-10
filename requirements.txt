@@ -1,3 +1,0 @@
-geerlingguy.nginx
-geerlingguy.mysql
-geerlingguy.php

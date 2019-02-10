@@ -1,0 +1,5 @@
+- src: geerlingguy.nginx
+- src: geerlingguy.mysql
+- src: geerlingguy.php
+- src: ansistrano.deploy
+- src: ansistrano.rollback

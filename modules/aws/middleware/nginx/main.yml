@@ -1,8 +1,43 @@
 ---
 - hosts: all
   become: true
-  tasks:
+  gather_facts: false
+  pre_tasks:
+    - name: Install python2 for Ansible
+      raw: bash -c "test -e /usr/bin/python || (apt -qqy update && apt install -qqy python-minimal)"
+      register: output
+      changed_when: output.stdout != ""
+    - name: Gathering Facts
+      setup:
+
     - include_role:
         name: geerlingguy.nginx
     - include_role:
         name: geerlingguy.php
+      vars:
+       php_enable_webserver: "false"
+
+    - name: "NGINX | Update NGINX configuration"
+      template:
+        src: templates/{{ item }}.j2
+        dest: /etc/nginx/sites-enabled/{{ item }}
+      with_items:
+        - "default"
+      notify:
+        - reload nginx
+
+    - name: "NGINX | Installing mysql client"
+      apt:
+        name: ["mysql-client-core-5.7"]
+        state: present
+        
+    - include_role:
+        name:  ansistrano.deploy
+      vars:
+        ansistrano_deploy_from: "{{ playbook_dir }}/../../../../app/" # Where my local project is (relative or absolute path)
+        ansistrano_deploy_to: "/var/www/app" # Base path to deploy to.
+        ansistrano_version_dir: "releases" # Releases folder name
+        ansistrano_current_dir: "current" # Softlink name. You should rarely changed it.
+        ansistrano_current_via: "symlink" # Deployment strategy who code should be deployed to current path. Options are symlink or rsync
+        ansistrano_keep_releases: 0
+        ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/after-symlink.yml"
