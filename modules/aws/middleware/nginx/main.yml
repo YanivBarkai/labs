@@ -16,20 +16,6 @@
         name: geerlingguy.php
       vars:
        php_enable_webserver: "false"
-
-    - name: "NGINX | Update NGINX configuration"
-      template:
-        src: templates/{{ item }}.j2
-        dest: /etc/nginx/sites-enabled/{{ item }}
-      with_items:
-        - "default"
-      notify:
-        - reload nginx
-
-    - name: "NGINX | Installing mysql client"
-      apt:
-        name: ["mysql-client-core-5.7"]
-        state: present
         
     - include_role:
         name:  ansistrano.deploy

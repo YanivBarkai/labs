@@ -1,11 +1,41 @@
-- name: NGINX | Create symbolic link 
+- name: APP | Create symbolic link 
   file:
     src: "{{ ansistrano_release_path.stdout }}"
     dest: "/var/www/html/app"
     state: link
 
-- name: NGINX | Install
+- name: APP | Install
   apt:
     state: present
     name: "{{ item }}"
   with_lines: cat {{ playbook_dir }}/../../../../app/requirements.txt
+
+- name: "APP | Update NGINX configuration"
+  template:
+    src: templates/{{ item }}.j2
+    dest: /etc/nginx/sites-enabled/{{ item }}
+  with_items:
+    - "default"
+  notify:
+    - reload nginx
+
+- name: "APP | Installing mysql client"
+  apt:
+    name: ["mysql-client-core-5.7"]
+    state: present
+
+- name: "APP | Change ./uploads directory permissions"
+  file:
+    path: /var/www/html/app/uploads
+    state: directory
+    mode: 0777
+
+- name: "APP | Add firefox repo"
+  apt_repository:
+    repo: ppa:mozillateam/firefox-next
+    state: present
+
+- name: "APP | Installing python script requirements"
+  apt:
+    name: ["firefox", "xvfb"]
+    state: present
