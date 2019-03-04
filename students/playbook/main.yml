@@ -1,0 +1,14 @@
+- hosts: localhost
+  # become: true
+  no_log: True
+  gather_facts: false
+  vars:
+    # triplec_student_number: 2
+    templates_source: "../../skel"
+    templates_destination: "../student"
+  tasks:
+    - include_tasks: deploy.yml
+      with_sequence: 1-{{ students }}
+      loop_control:
+        loop_var: index
+

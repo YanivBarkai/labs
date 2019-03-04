@@ -2,3 +2,6 @@
 *.tar.gz
 .terragrunt*
 *.retry
+students/student*
+__pycache__
+students/logs
